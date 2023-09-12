@@ -1,35 +1,33 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
-import { LoginComponent } from './login.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent],
+      declarations: [DashboardComponent],
       imports: [
         NoopAnimationsModule,
-        ReactiveFormsModule,
         MatButtonModule,
         MatCardModule,
-        MatInputModule,
-        MatRadioModule,
-        MatSelectModule,
+        MatGridListModule,
+        MatIconModule,
+        MatMenuModule,
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

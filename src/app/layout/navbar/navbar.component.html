@@ -1,29 +1,34 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>SalaDeJuegos</span>
-    </mat-toolbar>
-    <!-- <app-adress-form></app-adress-form> -->
-    <router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+    (click)="goHome()"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+  <!-- <span>Sala de juegos</span> -->
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+  <!-- <button mat-flat-button color="primary" routerLink="/authentication/login">Iniciar sesión</button> -->
+  <!-- <button mat-flat-button color="primary" (click)="loginlogout()">
+    {{ btnText }}
+  </button> -->
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <button mat-button (click)="loginlogout()">
+    {{ btnText }}
+  </button>
+</mat-toolbar>
