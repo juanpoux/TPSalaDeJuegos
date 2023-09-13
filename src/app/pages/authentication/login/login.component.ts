@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IUserLogin } from 'src/app/models/userLogin.interface';
 
 @Component({
   selector: 'app-login',
@@ -11,36 +9,44 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  private router: Router = inject(Router);
   public hide: boolean = true;
+  error: string | undefined;
 
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
-    company: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [
-      null,
-      Validators.compose([
-        Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(5),
-      ]),
-    ],
-    shipping: ['free', Validators.required],
+    userName: [null, Validators.required],
+    password: [null, Validators.required],
   });
 
-  hasUnitNumber = false;
+  private user: IUserLogin = {
+    userName: undefined,
+    password: undefined,
+  };
 
-  states = [];
-
-  hideBtn(): void {
-    this.hide = !this.hide;
-  }
   onSubmit(): void {
-    alert('Thanks!');
+    if (this.addressForm.valid) {
+      this.user.userName = this.addressForm.value.userName ?? undefined;
+      this.user.password = this.addressForm.value.password ?? undefined;
+
+      if (this.user.userName != undefined && this.user.password != undefined) {
+        const listUsers = JSON.parse(sessionStorage.getItem('users') || '[]');
+        if (
+          listUsers.some(
+            (usr: IUserLogin) =>
+              usr.userName == this.user.userName &&
+              usr.password == this.user.password
+          ) ||
+          (this.user.userName == 'admin' && this.user.password == 'admin')
+        ) {
+          this.error = undefined;
+          sessionStorage.setItem('user', this.user.userName);
+          this.router.navigate(['home']);
+        } else {
+          this.error =
+            'Usuario o contraseña incorrectos. Si no tiene cuenta debe registrarse';
+        }
+      }
+    }
   }
 }

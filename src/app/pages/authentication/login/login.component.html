@@ -11,8 +11,13 @@
               <input
                 matInput
                 placeholder="Nombre de usuario"
-                formControlName="company"
+                formControlName="userName"
               />
+              <mat-error
+                *ngIf="addressForm.controls['userName'].hasError('required')"
+              >
+                Nombre de usuario es un dato <strong>requerido</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -23,7 +28,7 @@
                 matInput
                 [type]="hide ? 'password' : 'text'"
                 placeholder="Contraseña"
-                formControlName="company"
+                formControlName="password"
               />
               <button
                 mat-icon-button
@@ -37,35 +42,10 @@
                   hide ? "visibility_off" : "visibility"
                 }}</mat-icon>
               </button>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="First name"
-                formControlName="firstName"
-              />
               <mat-error
-                *ngIf="addressForm.controls['firstName'].hasError('required')"
+                *ngIf="addressForm.controls['password'].hasError('required')"
               >
-                First name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="Last name"
-                formControlName="lastName"
-              />
-              <mat-error
-                *ngIf="addressForm.controls['lastName'].hasError('required')"
-              >
-                Last name is <strong>required</strong>
+                Contraseña es dato <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
           </div>

@@ -1,34 +1,8 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-    (click)="goHome()"
-  >
-    <mat-icon>home</mat-icon>
-  </button>
-  <!-- <span>Sala de juegos</span> -->
+  <a class="container-center" (click)="goHome()">
+    <img class="nav-img" src="assets/images/logo.png" alt="" srcset="" />
+  </a>
   <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
-  <!-- <button mat-flat-button color="primary" routerLink="/authentication/login">Iniciar sesión</button> -->
-  <!-- <button mat-flat-button color="primary" (click)="loginlogout()">
-    {{ btnText }}
-  </button> -->
-
-  <button mat-button (click)="loginlogout()">
-    {{ btnText }}
+  <button mat-button (click)="loginlogout()" [innerText]="btnText">
   </button>
 </mat-toolbar>
