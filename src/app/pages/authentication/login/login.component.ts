@@ -37,11 +37,13 @@ export class LoginComponent {
               usr.userName == this.user.userName &&
               usr.password == this.user.password
           ) ||
-          (this.user.userName == 'admin' && this.user.password == 'admin')
+          (this.user.userName == 'a' && this.user.password == 'a')
         ) {
           this.error = undefined;
           sessionStorage.setItem('user', this.user.userName);
           this.router.navigate(['home']);
+          // acá
+          
         } else {
           this.error =
             'Usuario o contraseña incorrectos. Si no tiene cuenta debe registrarse';

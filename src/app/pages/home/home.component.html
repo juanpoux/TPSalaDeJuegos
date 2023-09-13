@@ -1,9 +1,45 @@
-<div class="container" [ngStyle]="{paddingTop: '50px'}">
-  <h1 [innerText]="title"></h1>
+<div
+  class="container"
+  [ngStyle]="{
+    paddingTop: '50px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  }"
+>
+  <ng-container *ngIf="!isLoggedIn; else notLoggedIn">
+    <h1 [innerText]="title"></h1>
+  </ng-container>
+  <br />
+  <br />
+  <app-btn-login></app-btn-login>
 
-  <a mat-fab extended routerLink="/about" color="primary">
-    <mat-icon>face</mat-icon>
-    Sobre mi
-  </a>
   <span class="example-spacer"></span>
 </div>
+
+<br />
+
+<ng-template #notLoggedIn>
+  <div
+    class="container"
+    [ngStyle]="{ display: 'flex', justifyContent: 'center' }"
+  >
+    <mat-card class="dashboard-card" [ngStyle]="{ border: '1px solid grey' }">
+      <mat-card-content class="dashboard-card-content">
+        <mat-card-title>
+          Ha iniciado sesión, puede ver quién soy
+        </mat-card-title>
+        <br />
+        <!-- <button mat-raised-button (click)="goHome()">Volver a home</button> -->
+        <button mat-raised-button color="primary" routerLink="/about">
+          Sobre mi
+        </button>
+
+        <!-- <a mat-fab extended routerLink="/about" color="primary">
+          <mat-icon>face</mat-icon>
+          Sobre mi
+        </a> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-template>

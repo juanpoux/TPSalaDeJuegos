@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
-  <a class="container-center" (click)="goHome()">
+  <a class="container-center" routerLink="home">
     <img class="nav-img" src="assets/images/logo.png" alt="" srcset="" />
   </a>
   <span class="example-spacer"></span>
   <!-- <a mat-button routerLink="/about"> Sobre mi </a> -->
-  <button mat-button (click)="loginlogout()" [innerText]="btnText"></button>
+  <!-- <app-btn-login></app-btn-login> -->
 </mat-toolbar>

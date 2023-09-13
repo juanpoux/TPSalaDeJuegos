@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: 'app-logout',
+  templateUrl: './logout.component.html',
+  styleUrls: ['./logout.component.scss'],
 })
-export class NavbarComponent {
+export class LogoutComponent {
   private router: Router = inject(Router);
 
   goHome() {

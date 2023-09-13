@@ -1,0 +1,16 @@
+<br />
+<div
+  class="container"
+  [ngStyle]="{ display: 'flex', justifyContent: 'center' }"
+>
+  <mat-card class="dashboard-card" [ngStyle]="{ border: '1px solid grey' }">
+    <mat-card-content class="dashboard-card-content">
+      <mat-card-title> Sesión cerrada, esperamos su regreso! </mat-card-title>
+      <br />
+      <!-- <button mat-raised-button (click)="goHome()">Volver a home</button> -->
+      <button mat-raised-button color="primary" (click)="goHome()">
+        Volver a home
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

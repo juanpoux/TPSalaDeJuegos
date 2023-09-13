@@ -33,6 +33,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NavigationComponent } from './pruebas/navigation/navigation.component';
 import { AddressFormComponent } from './pruebas/address-form/address-form.component';
+import { BtnLoginComponent } from './layout/btn-login/btn-login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './pages/authentication/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,8 @@ import { AddressFormComponent } from './pruebas/address-form/address-form.compon
     TableComponent,
     NavigationComponent,
     AddressFormComponent,
+    BtnLoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,8 @@ import { AddressFormComponent } from './pruebas/address-form/address-form.compon
     MatTreeModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

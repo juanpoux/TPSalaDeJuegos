@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/authentication/register/register.comp
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { LogoutComponent } from './pages/authentication/logout/logout.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent,
       },
     ],
   },
