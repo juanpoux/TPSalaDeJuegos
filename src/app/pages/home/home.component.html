@@ -1,1 +1,9 @@
-<h1 [innerText]="title"></h1>
+<div class="container" [ngStyle]="{paddingTop: '50px'}">
+  <h1 [innerText]="title"></h1>
+
+  <a mat-fab extended routerLink="/about" color="primary">
+    <mat-icon>face</mat-icon>
+    Sobre mi
+  </a>
+  <span class="example-spacer"></span>
+</div>
