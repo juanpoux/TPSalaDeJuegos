@@ -1,35 +1,59 @@
-<div
-  class="container"
-  [ngStyle]="{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  }"
->
-  <ng-container *ngIf="!isLoggedIn; else notLoggedIn">
-    <h1 [innerText]="title"></h1>
-  </ng-container>
-  <br />
-  <br />
-  <app-btn-login></app-btn-login>
-
-  <span class="example-spacer"></span>
-</div>
-
-<br />
-
-<ng-template #notLoggedIn>
-  <div class="container flex_center">
-    <mat-card class="dashboard-card border_card">
-      <mat-card-content class="dashboard-card-content">
-        <mat-card-title>
-          Ha iniciado sesión, puede ver quién soy
-        </mat-card-title>
-        <br />
-        <button mat-raised-button color="primary" routerLink="/about">
-          Sobre mi
-        </button>
-      </mat-card-content>
-    </mat-card>
+<div class="container col-12">
+  <div class="row">
+    <div class="col-6">
+      <mat-card class="dashboard-card border_card">
+        <mat-card-content class="dashboard-card-content">
+          <ng-container *ngIf="!isLoggedIn; else notLoggedIn">
+            <h1>¡Bienvenido a mi página!</h1>
+            <p class="card_text">
+              Soy <strong style="color: #3f51b5">Juan Poux</strong>, alumno de
+              Laboratorio de computación 4B. En esta página podrás encontrar
+              algunos juegos que he desarrollado como parte de mi primer trabajo
+              práctico.
+            </p>
+            <p class="card_text">
+              Inicia sesión para poder acceder al contenido de la página.
+            </p>
+          </ng-container>
+          <ng-template #notLoggedIn>
+            <h1>¡Bienvenido a mi página!</h1>
+            <p class="card_text">
+              Soy <strong style="color: #3f51b5">Juan Poux</strong>, alumno de
+              Laboratorio de computación 4B. En esta página podrás encontrar
+              algunos juegos que he desarrollado como parte de mi primer trabajo
+              práctico.
+            </p>
+            <p class="card_text">
+              En la sección "Sobre mí" podrás conocer un poco más sobre mi
+              experiencia y habilidades como desarrollador, así como mis
+              intereses y pasatiempos.
+            </p>
+            <p class="card_text">
+              ¡Espero que disfrutes de los juegos y conozcas un poco más sobre
+              mí!
+            </p>
+          </ng-template>
+          <br />
+          <br />
+          <div class="d-flex justify-content-between">
+            <button
+              *ngIf="isLoggedIn"
+              mat-raised-button
+              color="primary"
+              routerLink="/about"
+            >
+              Sobre mi
+            </button>
+            <app-btn-login></app-btn-login>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-6">
+      <!-- <span class="loader"></span> -->
+      <div class="d-flex justify-content-center">
+        <img style="width: 300px" src="assets/images/consola.png" alt="" />
+      </div>
+    </div>
   </div>
-</ng-template>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IUserLogin } from 'src/app/models/userLogin.interface';
 
 @Component({
@@ -12,6 +13,8 @@ export class LoginComponent implements OnInit {
   private router: Router = inject(Router);
   public hide: boolean = true;
   error: string | undefined;
+
+  constructor(private toastr: ToastrService) {}
 
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
@@ -46,6 +49,10 @@ export class LoginComponent implements OnInit {
         ) {
           this.error = undefined;
           sessionStorage.setItem('user', this.user.userName);
+          this.toastr.success(
+            `Bienvenido ${this.user.userName}!`,
+            'Sesión iniciada correctamente!'
+          );
           this.router.navigate(['home']);
         } else {
           this.error =

@@ -37,6 +37,9 @@ import { BtnLoginComponent } from './layout/btn-login/btn-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './pages/authentication/logout/logout.component';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +82,8 @@ import { LogoutComponent } from './pages/authentication/logout/logout.component'
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
+    SweetAlert2Module.forRoot(),
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

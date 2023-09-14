@@ -2,6 +2,10 @@
 
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";
+// regular style toast
+@import "ngx-toastr/toastr";
+// boostrap 5
+// @import 'ngx-toastr/toastr-bs5-alert';
 
 html,
 body {
@@ -24,4 +28,8 @@ body {
 
 .border_card {
   border: 1px solid grey !important;
+}
+
+.card_text {
+  font-size: 15px;
 }

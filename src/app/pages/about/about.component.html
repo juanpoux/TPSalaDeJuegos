@@ -1,20 +1,51 @@
-<div class="container flex_center">
-  <mat-card class="dashboard-card border_card">
-    <mat-card-content class="dashboard-card-content">
-      <mat-card-title> Perfil </mat-card-title>
-      <br />
-      <div class="img_container">
-        <p style="font-size: 18px">
-          Mi nombre es Juan Poux. <br />
-          Tengo 28 años. <br />
-          Soy desarrollador web.
-        </p>
-        <img
-          style="width: 200px; height: 200px"
-          src="assets/images/profile.jpg"
-          alt=""
-        />
+<div class="container col-12">
+  <div class="row align-items-center">
+    <div class="col-6">
+      <mat-card class="dashboard-card border_card">
+        <mat-card-content class="dashboard-card-content">
+          <mat-card-title> Perfil </mat-card-title>
+          <br />
+          <p class="card_text">
+            Soy Juan Poux, estudiante de la Tecnicatura en Programación de UTN
+            FRA y desarrollador web en DTI Center.
+          </p>
+          <p>
+            Me apasiona la tecnología, la música y también disfruto de los
+            videojuegos en mi tiempo libre.
+          </p>
+          <p>
+            Desde que comencé mi formación en programación, he estado trabajando
+            en proyectos personales y académicos para mejorar mis habilidades y
+            conocimientos. Mi objetivo como desarrollador es seguir aprendiendo
+            y creciendo en esta área, y poder aplicar mis conocimientos para
+            crear soluciones innovadoras y útiles.
+          </p>
+          <p>
+            Espero que disfruten de mi trabajo práctico y puedan conocer un poco
+            más sobre mí.
+          </p>
+          <br />
+          <br />
+          <div class="d-flex justify-content-between">
+            <button mat-raised-button color="primary" routerLink="/home">
+              Volver a home
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-center">
+        <mat-card class="dashboard-card border_card">
+          <mat-card-content class="dashboard-card-content">
+            <img
+              style="width: 450px"
+              src="assets/images/profile.jpg"
+              alt="profile image"
+            />
+          </mat-card-content>
+        </mat-card>
       </div>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </div>
 </div>
