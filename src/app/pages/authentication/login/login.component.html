@@ -1,17 +1,18 @@
 <div class="container">
   <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
-    <mat-card class="shipping-card">
+    <mat-card class="shipping-card border_card">
       <mat-card-header>
-        <mat-card-title>Iniciar sesión</mat-card-title>
+        <mat-card-title>Datos de usuario</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div class="row">
+        <div class="row mt-3">
           <div class="col">
             <mat-form-field class="full-width">
               <input
                 matInput
                 placeholder="Nombre de usuario"
                 formControlName="userName"
+                [(ngModel)]="user.userName"
               />
               <mat-error
                 *ngIf="addressForm.controls['userName'].hasError('required')"
@@ -29,6 +30,7 @@
                 [type]="hide ? 'password' : 'text'"
                 placeholder="Contraseña"
                 formControlName="password"
+                [(ngModel)]="user.password"
               />
               <button
                 mat-icon-button
@@ -50,6 +52,9 @@
             </mat-form-field>
           </div>
         </div>
+        <mat-error *ngIf="error">
+          <strong>{{ error }} </strong></mat-error
+        >
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit">

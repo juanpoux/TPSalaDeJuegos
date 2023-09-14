@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public title: string = 'Bienvenido, inicie sesión';
+  public title: string = 'Bienvenido, inicie sesión para poder ver el contenido de la página';
   public isLoggedIn: boolean = false;
 
   constructor() {}

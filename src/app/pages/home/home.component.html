@@ -1,7 +1,6 @@
 <div
   class="container"
   [ngStyle]="{
-    paddingTop: '50px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
@@ -20,25 +19,16 @@
 <br />
 
 <ng-template #notLoggedIn>
-  <div
-    class="container"
-    [ngStyle]="{ display: 'flex', justifyContent: 'center' }"
-  >
-    <mat-card class="dashboard-card" [ngStyle]="{ border: '1px solid grey' }">
+  <div class="container flex_center">
+    <mat-card class="dashboard-card border_card">
       <mat-card-content class="dashboard-card-content">
         <mat-card-title>
           Ha iniciado sesión, puede ver quién soy
         </mat-card-title>
         <br />
-        <!-- <button mat-raised-button (click)="goHome()">Volver a home</button> -->
         <button mat-raised-button color="primary" routerLink="/about">
           Sobre mi
         </button>
-
-        <!-- <a mat-fab extended routerLink="/about" color="primary">
-          <mat-icon>face</mat-icon>
-          Sobre mi
-        </a> -->
       </mat-card-content>
     </mat-card>
   </div>

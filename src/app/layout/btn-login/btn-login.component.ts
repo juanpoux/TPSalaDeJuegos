@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class BtnLoginComponent implements OnInit {
   public isLoggedIn: boolean = false;
   public btnText: string = 'Iniciar sesión';
+  public btnColor: string = 'primary';
   private router: Router = inject(Router);
 
   constructor() {}
@@ -17,6 +18,7 @@ export class BtnLoginComponent implements OnInit {
     this.isLoggedIn = sessionStorage.getItem('user') != null;
     if (this.isLoggedIn) {
       this.btnText = 'Cerrar sesión';
+      this.btnColor = 'warn';
     }
   }
 

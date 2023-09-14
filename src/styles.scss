@@ -11,6 +11,17 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-body {
-  // background-color: rgb(172, 202, 192);
+
+.flex_center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.border_card {
+  border: 1px solid grey !important;
 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUserLogin } from 'src/app/models/userLogin.interface';
@@ -8,7 +8,7 @@ import { IUserLogin } from 'src/app/models/userLogin.interface';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   private router: Router = inject(Router);
   public hide: boolean = true;
   error: string | undefined;
@@ -19,10 +19,15 @@ export class LoginComponent {
     password: [null, Validators.required],
   });
 
-  private user: IUserLogin = {
+  public user: IUserLogin = {
     userName: undefined,
     password: undefined,
   };
+
+  ngOnInit(): void {
+    this.user.password = 'admin';
+    this.user.userName = 'admin';
+  }
 
   onSubmit(): void {
     if (this.addressForm.valid) {
@@ -37,16 +42,14 @@ export class LoginComponent {
               usr.userName == this.user.userName &&
               usr.password == this.user.password
           ) ||
-          (this.user.userName == 'a' && this.user.password == 'a')
+          (this.user.userName == 'admin' && this.user.password == 'admin')
         ) {
           this.error = undefined;
           sessionStorage.setItem('user', this.user.userName);
           this.router.navigate(['home']);
-          // acá
-          
         } else {
           this.error =
-            'Usuario o contraseña incorrectos. Si no tiene cuenta debe registrarse';
+            'Usuario o contraseña incorrectos. Por favor, vuelva a intentarlo';
         }
       }
     }
