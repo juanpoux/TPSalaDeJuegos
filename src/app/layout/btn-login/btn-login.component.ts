@@ -12,7 +12,7 @@ export class BtnLoginComponent implements OnInit {
   public btnText: string = 'Iniciar sesión';
   public btnColor: string = 'primary';
   private router: Router = inject(Router);
-  private toastr: ToastrService = inject(ToastrService)
+  private toastr: ToastrService = inject(ToastrService);
   // constructor() {}
   // constructor(private toastr: ToastrService) {}
 
@@ -29,9 +29,7 @@ export class BtnLoginComponent implements OnInit {
       // cierra sesión y vuelve a home
       sessionStorage.removeItem('user');
       // this.router.navigate(['home']);
-      this.toastr.info(
-        'Sesión cerrada correctamente!'
-      );
+      this.toastr.info('Sesión cerrada correctamente!');
       this.router.navigate(['authentication/logout']);
     } else {
       // redirecciona a la pantalla de login
