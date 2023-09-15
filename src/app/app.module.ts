@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/authentication/login/login.component';
 import { RegisterComponent } from './pages/authentication/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -39,11 +38,11 @@ import { LogoutComponent } from './pages/authentication/logout/logout.component'
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginModule } from './modules/authentication/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     RegisterComponent,
     HomeComponent,
     NavbarComponent,
@@ -84,6 +83,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
