@@ -18,10 +18,17 @@ const routes: Routes = [
       {
         path: 'login',
         loadChildren: () =>
-          import('./modules/authentication/login/login-routing.module').then(
-            (m) => m.LoginRoutingModule
+          import('./modules/authentication/prueba-login-firebase/prueba-login-firebase-routing.module').then(
+            (m) => m.PruebaLoginFirebaseRoutingModule
           ),
       },
+      // {
+      //   path: 'login',
+      //   loadChildren: () =>
+      //     import('./modules/authentication/login/login-routing.module').then(
+      //       (m) => m.LoginRoutingModule
+      //     ),
+      // },
       {
         path: 'register',
         component: RegisterComponent,
@@ -39,6 +46,13 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
+  },
+  {
+    path: 'authentication/pruebaLoginFirebase',
+    loadChildren: () =>
+      import(
+        './modules/authentication/prueba-login-firebase/prueba-login-firebase.module'
+      ).then((m) => m.PruebaLoginFirebaseModule),
   },
   {
     path: '**',

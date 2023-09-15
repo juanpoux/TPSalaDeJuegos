@@ -39,6 +39,13 @@ import { LogoutComponent } from './pages/authentication/logout/logout.component'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginModule } from './modules/authentication/login/login.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth, Auth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { connectAuthEmulator } from 'firebase/auth';
+import { connectFirestoreEmulator } from 'firebase/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -84,6 +91,16 @@ import { LoginModule } from './modules/authentication/login/login.module';
     SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
     LoginModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => {
+    //   const auth = getAuth();
+    //   return auth;
+    // }),
+    // provideFirestore(() => {
+    //   const firestore = getFirestore();
+    //   return firestore;
+    // }),
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent],

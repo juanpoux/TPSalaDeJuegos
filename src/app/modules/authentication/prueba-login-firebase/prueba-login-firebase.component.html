@@ -1,0 +1,52 @@
+<div class="container">
+  <mat-card class="shipping-card border_card">
+    <mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Datos de usuario</mat-card-title>
+      </mat-card-header>
+      <div class="row mt-3">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Nombre de usuario"
+              [(ngModel)]="user.userName"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              placeholder="Contraseña"
+              [(ngModel)]="user.password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-error *ngIf="error">
+        <strong>{{ error }} </strong></mat-error
+      >
+      <!-- <button mat-raised-button color="primary" type="submit"> -->
+      <button mat-raised-button color="primary" (click)="ingresar()">
+        Iniciar sesión
+      </button>
+      <button mat-raised-button color="primary" (click)="ingresarGoogle()">
+        Ingresar con Google
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

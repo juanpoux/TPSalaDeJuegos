@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "tpsaladejuegos-6f24b"
+  },
+  "targets": {
+    "tpsaladejuegos-6f24b": {
+      "hosting": {
+        "SalaDeJuegos": [
+          "tpsaladejuegos-6f24b"
+        ]
+      }
+    }
   }
 }
