@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './pages/authentication/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,23 +33,14 @@ import { NavigationComponent } from './pruebas/navigation/navigation.component';
 import { AddressFormComponent } from './pruebas/address-form/address-form.component';
 import { BtnLoginComponent } from './layout/btn-login/btn-login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LogoutComponent } from './pages/authentication/logout/logout.component';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ToastrModule } from 'ngx-toastr';
-import { LoginModule } from './modules/authentication/login/login.module';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth, getAuth, Auth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { connectAuthEmulator } from 'firebase/auth';
-import { connectFirestoreEmulator } from 'firebase/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
+import { LoginModule } from './modules/auth/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     HomeComponent,
     NavbarComponent,
     NotFoundComponent,
@@ -61,7 +51,6 @@ import { AngularFireModule } from '@angular/fire/compat';
     NavigationComponent,
     AddressFormComponent,
     BtnLoginComponent,
-    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,7 +89,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     //   const firestore = getFirestore();
     //   return firestore;
     // }),
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent],

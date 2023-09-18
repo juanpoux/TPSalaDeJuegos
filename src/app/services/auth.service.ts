@@ -11,7 +11,9 @@ export class AuthService {
 
   async login(email: string, password: string) {
     try {
-      return await this.afauth.signInWithEmailAndPassword(email, password);
+      let asd = await this.afauth.signInWithEmailAndPassword(email, password);
+      console.log(asd);
+      return asd;
     } catch (error) {
       console.error('error en login ', error);
       return null;
