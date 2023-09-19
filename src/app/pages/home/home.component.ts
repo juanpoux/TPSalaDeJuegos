@@ -6,13 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public title: string = 'Bienvenido, inicie sesión para poder ver el contenido de la página';
+  public title: string =
+    'Bienvenido, inicie sesión para poder ver el contenido de la página';
   public isLoggedIn: boolean = false;
+  public userName: string = '';
 
   constructor() {}
   ngOnInit(): void {
-    if (sessionStorage.getItem('user') != null) {
-      this.title = 'Sesión iniciada, bienvenido!';
+    let storage = sessionStorage.getItem('user');
+    if (storage != null) {
+      let user: string = JSON.parse(storage);
+      console.log(user);
+      this.userName = user!;
       this.isLoggedIn = true;
     }
   }

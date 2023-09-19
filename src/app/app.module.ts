@@ -7,7 +7,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AboutComponent } from './pages/about/about.component';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -44,7 +43,6 @@ import { LoginModule } from './modules/auth/login/login.module';
     HomeComponent,
     NavbarComponent,
     NotFoundComponent,
-    AboutComponent,
     DashboardComponent,
     TreeComponent,
     TableComponent,
@@ -80,16 +78,6 @@ import { LoginModule } from './modules/auth/login/login.module';
     SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
     LoginModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => {
-    //   const auth = getAuth();
-    //   return auth;
-    // }),
-    // provideFirestore(() => {
-    //   const firestore = getFirestore();
-    //   return firestore;
-    // }),
-    // AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent],

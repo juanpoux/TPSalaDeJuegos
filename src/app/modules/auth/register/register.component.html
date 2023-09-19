@@ -1,1 +1,79 @@
-<p>register works!</p>
+<div class="container">
+  <mat-card class="shipping-card border_card">
+    <mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Datos de usuario</mat-card-title>
+      </mat-card-header>
+      <div class="row mt-3">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Nombre de usuario"
+              [(ngModel)]="user.userName"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              placeholder="Contraseña"
+              [(ngModel)]="user.password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              placeholder="Confirmar contraseña"
+              [(ngModel)]="user.confirmPassword"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-error *ngIf="error">
+        <strong>{{ error }} </strong></mat-error
+      >
+      <div class="d-flex justify-content-between">
+        <button mat-raised-button color="primary" (click)="signUp()">
+          Registrarse
+        </button>
+        <button mat-raised-button color="info" routerLink="/home">
+          Volver a home
+        </button>
+      </div>
+    </mat-card-content>
+    <mat-progress-bar
+      mode="indeterminate"
+      *ngIf="showLoading"
+    ></mat-progress-bar>
+  </mat-card>
+</div>

@@ -28,7 +28,6 @@ export class BtnLoginComponent implements OnInit {
     if (this.isLoggedIn) {
       // cierra sesión y vuelve a home
       sessionStorage.removeItem('user');
-      // this.router.navigate(['home']);
       this.toastr.info('Sesión cerrada correctamente!');
       this.router.navigate(['authentication/logout']);
     } else {

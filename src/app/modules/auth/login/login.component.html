@@ -40,10 +40,15 @@
       <mat-error *ngIf="error">
         <strong>{{ error }} </strong></mat-error
       >
-      <!-- <button mat-raised-button color="primary" type="submit"> -->
-      <button mat-raised-button color="primary" (click)="ingresar()">
-        Iniciar sesión
-      </button>
+      <div class="d-flex justify-content-between">
+        <button mat-raised-button color="primary" (click)="signIn()">
+          Iniciar sesión
+        </button>
+        <button mat-raised-button color="info" (click)="completeFields()">
+          Completar campos
+        </button>
+      </div>
     </mat-card-content>
+    <mat-progress-bar mode="indeterminate" *ngIf="showLoading"></mat-progress-bar>
   </mat-card>
 </div>
