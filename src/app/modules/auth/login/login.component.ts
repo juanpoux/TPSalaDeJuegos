@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { AccountService } from 'src/app/modules/auth/services/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ILoginUser } from '../interfaces/login-user.interface';
@@ -15,7 +15,7 @@ export class LoginComponent {
   showLoading: boolean = false;
 
   constructor(
-    private authService: AuthService,
+    private accountService: AccountService,
     private router: Router,
     private toastr: ToastrService
   ) {}
@@ -29,7 +29,7 @@ export class LoginComponent {
     this.showLoading = true;
     console.log(this.user);
     const { userName, password } = this.user;
-    this.authService.login(userName!, password!).then((res) => {
+    this.accountService.login(userName!, password!).then((res) => {
       if (res) {
         sessionStorage.setItem('user', JSON.stringify(userName));
         this.toastr.success('Sesión iniciada correctamente!');

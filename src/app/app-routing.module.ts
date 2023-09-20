@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: 'test',
   },
   {
     path: 'authentication',
@@ -50,6 +50,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/general/about/about.module').then((m) => m.AboutModule),
   },
+  { path: 'test', loadChildren: () => import('./modules/test/test/test.module').then(m => m.TestModule) },
   {
     path: '**',
     component: NotFoundComponent,

@@ -9,11 +9,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { MaterialModule } from '../../material/material.module';
 
-
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
@@ -23,6 +20,6 @@ import { MaterialModule } from '../../material/material.module';
     ReactiveFormsModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
-  ]
+  ],
 })
-export class LoginModule { }
+export class LoginModule {}

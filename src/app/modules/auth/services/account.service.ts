@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AccountService {
   constructor(private afauth: AngularFireAuth, private toastr: ToastrService) {}
 
   async login(email: string, password: string) {

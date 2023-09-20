@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/account.service';
+import { AccountService } from 'src/app/modules/auth/services/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ILoginUser } from '../interfaces/login-user.interface';
@@ -16,7 +16,7 @@ export class RegisterComponent {
   showLoading: boolean = false;
 
   constructor(
-    private authService: AuthService,
+    private accountService: AccountService,
     private router: Router,
     private toastr: ToastrService
   ) {}
@@ -35,7 +35,7 @@ export class RegisterComponent {
       this.error = 'Las contraseñas no coinciden';
       this.showLoading = false;
     } else {
-      this.authService.register(userName!, password!).then((res) => {
+      this.accountService.register(userName!, password!).then((res) => {
         if (res) {
           sessionStorage.setItem('user', JSON.stringify(userName));
           this.toastr.success('Cuenta creada con éxito!');
