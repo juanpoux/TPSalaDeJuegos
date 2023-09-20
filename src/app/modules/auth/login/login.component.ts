@@ -3,6 +3,7 @@ import { AccountService } from 'src/app/modules/auth/services/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ILoginUser } from '../interfaces/login-user.interface';
+import { FirestoreService } from '../services/firestore.service';
 
 @Component({
   selector: 'app-prueba-login-firebase',
@@ -17,7 +18,8 @@ export class LoginComponent {
   constructor(
     private accountService: AccountService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private fireStoreService: FirestoreService
   ) {}
 
   public user: ILoginUser = {
@@ -33,6 +35,7 @@ export class LoginComponent {
       if (res) {
         sessionStorage.setItem('user', JSON.stringify(userName));
         this.toastr.success('Sesión iniciada correctamente!');
+        this.fireStoreService.addLogUser(userName);
         this.router.navigate(['']);
       }
       console.log(res);
